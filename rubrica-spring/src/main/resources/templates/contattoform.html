@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+<title>rubrica-spring</title>
+
+<!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+	<div class="container">
+		<!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+
+		<h2>Contatto Details</h2>
+		<div>
+			<form class="form-horizontal" th:object="${contatto}"
+				th:action="@{/contatto}" method="post">
+				<input type="hidden" th:field="*{id}" />
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Nome:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{nome}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Cognome:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{cognome}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Telefono:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{telefono}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">email:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{email}" />
+					</div>
+				</div>
+				<div class="row">
+					<button type="submit" class="btn btn-default">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>
