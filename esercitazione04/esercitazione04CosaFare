@@ -1,0 +1,41 @@
+Si consideri la classe:
+public class Data {
+    public int g, m, a;
+}
+Esercizi capitolo 4
+1. Si aggiunga alla classe Data un costruttore a tre argomenti che, dati un giorno, un mese e un anno, inizializza l'oggetto con quei dati. Il costruttore deve verificare se giorno e mese sono corretti e "correggerli" altrimenti come segue:
+- se mese o giorno è inferiore a 1, deve essere preso come 1;
+- se il mese è superiore a 12 deve essere preso come 12 (es. 5/13/20012 deve essere corretto a 5/12/2012)
+- se il giorno è superiore all'ultimo giorno del mese specificato, deve essere corretto all'ultimo del mese (es. 31/2/2012 deve essere corretto a 29/2/2012). Si ricordi che un anno è bisestile se e solo se ((anno % 4 == 0 && anno % 100 != 0) || anno % 400 == 0). Si ricordi inoltre la famosa filastrocca "trenta di' conta novembre, con april, giugno e settembre"...
+2. Si aggiunga alla classe Data un metodo toString che, dato un oggetto, restituisce una stringa che contiene la data (es. "17 novembre 2012") con il nome del mese a parole.
+3. Si aggiunga alla classe Data un metodo equals che verifica se due date sono uguali.
+4. Si aggiunga alla classe Data un metodo precede che verifica se una data precede strettamente l'altra.
+5. Si aggiunga alla classe Data un metodo un metodo successivo che calcola la data successiva a una data specificata.
+
+Dopo aver scritto i metodi della classe, creare un’altra classe chiamata ProvaData, incollate il seguente codice e verificatene la correttezza.
+public class ProvaData {
+    public static void main(String[] args) {
+        Data a = new Data(29,2,2012);
+        Data b = new Data(13,12,2012);
+        // test costruttore
+        System.out.println(a.g + "/" + a.m + "/" + a.a);
+// dovrebbe stampare 28/2/2012
+        // test toString
+        System.out.println(a.toString()); // dovrebbe
+stampare 28 Febbraio 2012
+        // test equals
+        System.out.println(a.equals(new
+Data(29,2,2012))); // dovrebbe stampare true
+        System.out.println(a.equals(b)); // dovrebbe
+stampare false
+        // test precede
+        System.out.println(a.precede(a)); // dovrebbe
+stampare false
+        System.out.println(a.precede(b)); // dovrebbe
+stampare true
+
+// test successivo
+        Data c = new Data(29,2,2012).successivo();
+        System.out.println(a.toString()); // dovrebbe
+stampare 1 Marzo 2012
+} }
