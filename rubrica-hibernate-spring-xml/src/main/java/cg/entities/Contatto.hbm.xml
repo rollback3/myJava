@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="cg.entities">
+
+	<class name="Contatto" table="contatto">
+		<id name="id" column="id_contatto">
+			<generator class="identity" />
+		</id>
+
+		<property name="nome" type="string" column="nome" length="50"
+			not-null="true" />
+		<property name="cognome" type="string" column="cognome"
+			length="50" not-null="true" />
+		<property name="telefono" type="string" column="telefono"
+			length="50" not-null="true" />
+		<property name="email" type="string" column="email"
+			length="50" not-null="false" />
+	</class>
+
+	<sql-query name="contatto.add"> INSERT INTO contatto (nome, cognome,
+		telefono, email) VALUES (:nome, :cognome, :telefono, :email)
+	</sql-query>
+
+</hibernate-mapping>
